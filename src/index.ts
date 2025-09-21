@@ -1,11 +1,10 @@
+import highlightJs from 'highlight.js';
 import MarkdownIt from 'markdown-it';
 import markdownItAnchor from 'markdown-it-anchor';
-import { MarkdownRendererOptions, RenderedResult } from '~/types';
-import { slugify } from '~/slugify';
-import highlightJs from 'highlight.js';
-import { sanitize } from '~/sanitize';
 import { safeLinkify } from '~/safe-linkify';
-import { JSDOM } from 'jsdom';
+import { sanitize } from '~/sanitize';
+import { slugify } from '~/slugify';
+import { MarkdownRendererOptions } from '~/types';
 
 class MarkdownRenderer {
   private static readonly DEFAULT_OPTIONS: MarkdownRendererOptions = {
@@ -50,28 +49,9 @@ class MarkdownRenderer {
     }
   }
 
-  render(markdown: string): RenderedResult {
-    const renderedHTML = this.client.render(markdown);
-    const resolvedHTML = this.options.useSanitize ? sanitize(renderedHTML) : renderedHTML;
-
-    const dom = new JSDOM(resolvedHTML);
-    const anchors = this.parseAnchors(dom.window.document.body.innerHTML);
-
-    return {
-      html: resolvedHTML,
-      anchors,
-    };
-  }
-
-  private parseAnchors(html: string) {
-    const dom = new JSDOM(html);
-    return Array.from(dom.window.document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]')).map(
-      (el) => ({
-        level: parseInt(el.tagName[1], 10),
-        slug: el.id,
-        text: el.textContent || '',
-      })
-    );
+  render(markdown: string): string {
+    const result = this.client.render(markdown);
+    return this.options.useSanitize ? sanitize(result) : result;
   }
 }
 
