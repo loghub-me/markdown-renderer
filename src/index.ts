@@ -1,4 +1,4 @@
-import highlightJs from 'highlight.js';
+import highlightJs, { HighlightResult } from 'highlight.js';
 import MarkdownIt from 'markdown-it';
 import markdownItAnchor from 'markdown-it-anchor';
 import { safeLinkify } from '~/safe-linkify';
@@ -14,13 +14,15 @@ class MarkdownRenderer {
     linkify: true,
     typographer: false,
     highlight: (code, lang) => {
-      if (lang && highlightJs.getLanguage(lang)) {
-        try {
+      try {
+        if (lang && highlightJs.getLanguage(lang)) {
           return highlightJs.highlight(code, { language: lang }).value;
-        } catch (_) {}
-      }
+        }
 
-      return '';
+        return highlightJs.highlightAuto(code).value;
+      } catch {
+        return '';
+      }
     },
     useMarkdownItAnchor: true,
     useSafeLinkify: true,
