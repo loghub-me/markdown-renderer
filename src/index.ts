@@ -7,7 +7,7 @@ import { MarkdownRendererOptions } from '~/types';
 
 class MarkdownRenderer {
   private static readonly DEFAULT_OPTIONS: MarkdownRendererOptions = {
-    html: true,
+    html: false,
     xhtmlOut: true,
     langPrefix: 'language-',
     linkify: true,
