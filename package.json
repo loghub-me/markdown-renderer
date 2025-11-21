@@ -1,13 +1,13 @@
 {
   "name": "loghub-me-markdown-renderer",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A markdown renderer for LogHub",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --minify",
-    "test": "tsx src/test.ts"
+    "test": "node --test --import tsx test/*.ts"
   },
   "sideEffects": false,
   "keywords": [],
@@ -26,7 +26,7 @@
     "@types/node": "^24.3.1",
     "@types/sanitize-html": "^2.16.0",
     "prettier": "^3.6.2",
-    "tsup": "^8.5.0",
+    "tsup": "^8.5.1",
     "tsx": "^4.20.5",
     "typescript": "^5.8.3"
   },
