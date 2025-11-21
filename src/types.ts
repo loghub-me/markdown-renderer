@@ -4,4 +4,4 @@ export interface MarkdownRendererOptions extends MarkdownIt.Options {
   enabledPlugins: MarkdownRendererPlugin[];
 }
 
-export type MarkdownRendererPlugin = 'anchor' | 'safeLink';
+export type MarkdownRendererPlugin = 'anchor' | 'safeLink' | 'captionedImage';

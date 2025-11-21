@@ -2,7 +2,7 @@ import highlightJs from 'highlight.js';
 import MarkdownIt from 'markdown-it';
 import markdownItAnchor from 'markdown-it-anchor';
 import { RenderRule } from 'markdown-it/lib/renderer.mjs';
-import { convertLinkToSafe, slugify, sanitize } from './plugins';
+import { convertLinkToSafe, slugify, sanitize, convertImageToCaptioned } from './plugins';
 import { MarkdownRendererOptions } from '~/types';
 
 class MarkdownRenderer {
@@ -23,7 +23,7 @@ class MarkdownRenderer {
         return '';
       }
     },
-    enabledPlugins: ['anchor', 'safeLink'],
+    enabledPlugins: ['anchor', 'safeLink', 'captionedImage'],
   };
 
   private readonly client: MarkdownIt;
@@ -46,6 +46,14 @@ class MarkdownRenderer {
       this.client.renderer.rules.link_open = (tokens, idx, opts, env, renderer) => {
         convertLinkToSafe(tokens[idx]);
         return linkOpenRule(tokens, idx, opts, env, renderer);
+      };
+    }
+
+    if (this.options.enabledPlugins.includes('captionedImage')) {
+      const imageRule = (this.client.renderer.rules.image as RenderRule) || defaultRenderRule;
+
+      this.client.renderer.rules.image = (tokens, idx, opts, env, renderer) => {
+        return convertImageToCaptioned(tokens[idx], () => imageRule(tokens, idx, opts, env, renderer));
       };
     }
   }
