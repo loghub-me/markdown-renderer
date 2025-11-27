@@ -1,6 +1,6 @@
 {
   "name": "loghub-me-markdown-renderer",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A markdown renderer for LogHub",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
