@@ -6,14 +6,17 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --minify",
+    "build": "tsup src/index.ts --format cjs,esm --dts --treeshake --minify",
     "test": "node --test --import tsx test/*.ts"
   },
   "sideEffects": false,
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.13.1",
+  "author": "loghub-me",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/loghub-me/markdown-renderer",
+  "keywords": [
+    "markdown",
+    "markdown-renderer"
+  ],
   "dependencies": {
     "highlight.js": "^11.11.1",
     "markdown-it": "^14.1.0",
