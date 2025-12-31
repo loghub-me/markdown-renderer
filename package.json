@@ -1,6 +1,6 @@
 {
   "name": "@loghub-me/markdown-renderer",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A markdown renderer for LogHub",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -13,8 +13,12 @@
   "author": "loghub-me",
   "license": "Apache-2.0",
   "homepage": "https://github.com/loghub-me/markdown-renderer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loghub-me/markdown-renderer.git"
+  },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "keywords": [
     "markdown",
