@@ -1,6 +1,6 @@
 {
   "name": "@loghub-me/markdown-renderer",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A markdown renderer for LogHub",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -28,7 +28,7 @@
     "highlight.js": "^11.11.1",
     "markdown-it": "^14.1.1",
     "markdown-it-anchor": "^9.2.0",
-    "sanitize-html": "^2.17.0"
+    "sanitize-html": "^2.17.1"
   },
   "devDependencies": {
     "@types/jsdom": "^21.1.7",
@@ -37,8 +37,8 @@
     "@types/sanitize-html": "^2.16.0",
     "prettier": "^3.6.2",
     "tsup": "^8.5.1",
-    "tsx": "^4.20.5",
-    "typescript": "^5.8.3"
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   },
   "files": [
     "dist"
