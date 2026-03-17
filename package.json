@@ -6,7 +6,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --treeshake --minify",
+    "build": "tsdown src/index.ts --format cjs,esm --dts --treeshake --minify",
     "test": "node --test --import tsx test/*.ts"
   },
   "sideEffects": false,
@@ -36,7 +36,7 @@
     "@types/node": "^24.3.1",
     "@types/sanitize-html": "^2.16.0",
     "prettier": "^3.6.2",
-    "tsup": "^8.5.1",
+    "tsdown": "^0.21.4",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
