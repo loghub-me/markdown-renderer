@@ -1,6 +1,6 @@
 {
   "name": "@loghub-me/markdown-renderer",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A markdown renderer for LogHub",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -36,7 +36,7 @@
     "@types/node": "^24.3.1",
     "@types/sanitize-html": "^2.16.0",
     "prettier": "^3.6.2",
-    "tsdown": "^0.21.4",
+    "tsdown": "^0.22.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
