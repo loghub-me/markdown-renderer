@@ -1,12 +1,12 @@
 {
   "name": "@loghub-me/markdown-renderer",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "A markdown renderer for LogHub",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "types": "dist/index.d.mts",
   "scripts": {
-    "build": "tsdown src/index.ts --format cjs,esm --dts --treeshake --minify",
+    "build": "tsdown",
     "test": "node --test --import tsx test/*.ts"
   },
   "sideEffects": false,
